@@ -10,25 +10,42 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-static typedef struct t_list
-{
-	const char	a;
-} t_stack;
+//TODO: what headers i need
+#include "libft.h"
+#include "stdio.h"
 
-
-//rotate the first node, claiming the last position
-void	rotate(t_stack **stack, const char *rule)
+//rotate the first node, claiming the last position. "0 1 2" -> "1 2 0"
+void	*rotate(t_stack_node **top)
 {
-	//i need aux list
-	//takes the first node
-	//find_last_node()
-	//create node and save the first
-	//now t_stack stack = aux_stack
+	t_stack_node	*old_top;
+	t_stack_node	*last;
+	//add a copy of the first node after the lastnode.
+	if (!top || !*top || !(*top)->next)
+		return ;
+	old_top = *top;
+	last = old_top;
+	while (last->next != NULL)
+		last = current->next;
+	last->next = old_top;
+	*top = old_top->next;
+	old_top->next = NULL;
 }
 
-void	push()
+void push(t_stack_node **top, const char *strnum)
 {
-	
+	t_stack_node *new_node;
+
+	if (!stack || !strnum) //stack doesnt exist or strnum is empty
+		return ;
+	new_node = malloc(sizeof(t_stack_node));
+	if (!new_node)
+		return ; //maybe i could be trowing an error, perror or EXIT_FAILURE is valid ??
+	new_node->number = ft_strdup(strnum);
+	if (!new_node->number)
+	{
+		free(new_node);
+		return ;
+	}
+	new_node->next = *top;
+	*top = new_node;
 }
-
-
