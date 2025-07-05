@@ -14,7 +14,7 @@
 #include "libft.h"
 #include "stdio.h"
 
-//rotate the first node, claiming the last position. "0 1 2" -> "1 2 0"
+//rotate the first node, claiming the last position. Eg. "0 1 2" -> "1 2 0"
 void	*rotate(t_stack_node **top)
 {
 	t_stack_node	*old_top;
@@ -25,12 +25,13 @@ void	*rotate(t_stack_node **top)
 	old_top = *top;
 	last = old_top;
 	while (last->next != NULL)
-		last = current->next;
+		last = old_top->next;
 	last->next = old_top;
 	*top = old_top->next;
 	old_top->next = NULL;
 }
 
+//push the first element from one stack to another. Eg. one. a: "0 1 6 0" , after push, "1 6 0". b: "0" 
 void push(t_stack_node **top, const char *strnum)
 {
 	t_stack_node *new_node;
@@ -48,4 +49,39 @@ void push(t_stack_node **top, const char *strnum)
 	}
 	new_node->next = *top;
 	*top = new_node;
+}
+
+//swap the first element & the second one in the same stack.
+void	swap(t_stack_node **top)
+{
+	t_stack_node	*old_top;
+	t_stack_node	*nextone;
+
+	if (!top || !*top || !(*top)->next)
+		return ;
+	old_top = *top;
+	nextone = old_top->next;
+	old_top->next = nextone->next;
+	nextone->next = old_top;
+	*top = nextone;
+}
+
+//rotate the last node to the first node
+void	rrotate(t_stack_node **top)
+{
+	t_stack_node	*prev;
+	t_stack_node	*bottom;
+
+	if (!top || !*top || !(*top)->next)
+		return ;
+	prev = NULL;
+	bottom = *top;
+	while (bottom->next)
+	{
+		prev = bottom;
+		bottom = bottom->next;
+	}
+	prev->next = NULL;
+	bottom->next = *top;
+	*top = bottom;
 }
