@@ -1,6 +1,10 @@
 #ifndef RULES_H
 # define RULES_H
 
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
 typedef struct s_stack_node
 {
 	char			*content;
