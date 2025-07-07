@@ -12,10 +12,10 @@
 
 //TODO: what headers i need
 #include "libft.h"
-#include "stdio.h"
+#include "rules.h"
 
 //rotate the first node, claiming the last position. Eg. "0 1 2" -> "1 2 0"
-void	*rotate(t_stack_node **top)
+void	rotate(t_stack_node **top)
 {
 	t_stack_node	*old_top;
 	t_stack_node	*last;
@@ -36,13 +36,13 @@ void push(t_stack_node **top, const char *strnum)
 {
 	t_stack_node *new_node;
 
-	if (!stack || !strnum) //stack doesnt exist or strnum is empty
+	if (!top || !strnum) //stack doesnt exist or strnum is empty
 		return ;
 	new_node = malloc(sizeof(t_stack_node));
 	if (!new_node)
 		return ; //maybe i could be trowing an error, perror or EXIT_FAILURE is valid ??
-	new_node->number = ft_strdup(strnum);
-	if (!new_node->number)
+	new_node->content = ft_strdup(strnum);
+	if (!new_node->content)
 	{
 		free(new_node);
 		return ;
