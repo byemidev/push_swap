@@ -1,41 +1,37 @@
 NAME = push_swap.a
 
-SRCS = src/main.c src/rules.c
+SRCS = src/*.c
 OBJS = $(SRCS:.c=.o)
 
 CC = cc
 CFLAGS = -Wextra -Werror -Wall
 
-PRINTF_DIR = includes/printf
-PRINTF = $(PRINTF_DIR)/libftprintf.a
+LIBFT_DIR = libft
+LIBFT = $(LIBFT_DIR)/libft.a
 
-INCLUDES = -Ilibftprintf
+INCLUDES = -Ilibft
 
 AR = ar rcs
 CP = cp
 
-.PHONY: all clean fclean re printf_clean printf_fclean
+.PHONY: all clean fclean re libft_clean libft_fclean
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(NAME): $(OBJS)
-	$(CP) $(PRINTF) $(NAME)
+	$(CP) $(LIBFT) $(NAME)
 	$(AR) $(NAME) $(OBJS)
 
-$(PRINTF):
-	$(MAKE) -C $(PRINTF_DIR)
+$(LIBFT):
+	$(MAKE) -C $(LIBFT_DIR)
 
 re: fclean all
 
-printf_clean:
-	$(MAKE) -C $(PRINTF_DIR) clean
+libft_clean:
+	$(MAKE) -C $(LIBFT_DIR) clean
 
-printf_fclean:
-	$(MAKE) -C $(PRINTF_DIR) fclean
+libft_fclean:
+	$(MAKE) -C $(LIBFT_DIR) fclean
 
-all: $(LIBFT) $(PRINTF) $(NAME)
-
-# esta funcionando mal, necesitaria poder solo
-# usar printf ya que contiene la libreria de libft,
-# pero no la detecta cuando intento
+all: $(LIBFT) $(NAME)
