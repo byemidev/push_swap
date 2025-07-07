@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 //TODO: what headers i need
-#include "printf.h"
+#include "libft.h"
 #include "rules.h"
 
 //rotate the first node, claiming the last position. Eg. "0 1 2" -> "1 2 0"
