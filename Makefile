@@ -1,5 +1,4 @@
 NAME = push_swap.a
-
 SRCS = src/*.c
 OBJS = $(SRCS:.c=.o)
 
@@ -9,7 +8,7 @@ CFLAGS = -Wextra -Werror -Wall
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-INCLUDES = -Ilibft
+INCLUDES = -I$(LIBFT_DIR)
 
 AR = ar rcs
 CP = cp
@@ -20,11 +19,17 @@ CP = cp
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(NAME): $(OBJS)
-	$(CP) $(LIBFT) $(NAME)
+	$(CP) $(LIBFT) .
 	$(AR) $(NAME) $(OBJS)
 
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
+
+clean:
+	rm -f $(OBJS)
+
+fclean: clean
+	rm -f $(NAME)
 
 re: fclean all
 

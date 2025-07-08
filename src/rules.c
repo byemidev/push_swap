@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 
 //TODO: what headers i need
-#include "libft.h"
-#include "rules.h"
+#include "../libft/libft.h"
+#include "../includes/push_swap.h"
 
 //rotate the first node, claiming the last position. Eg. "0 1 2" -> "1 2 0"
 void	rotate(t_stack_node **top)

@@ -1,7 +1,20 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-//stacks as buffer ??
-//error handling functions, no valid input, elements duplicates
-//function as : is_input_valid(const char *args).. all functions that push_swap needs
-//what i am need to implement K Algorithm
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+typedef struct s_stack_node
+{
+        char                    *content;
+        struct s_stack_node     *next;
+}                                       t_stack_node;
+
+//push_swap
+void    rotate(t_stack_node **top);
+void    push(t_stack_node **top, const char *strnum);
+void    swap(t_stack_node **top);
+void    rrotate(t_stack_node **top);
+
 #endif
