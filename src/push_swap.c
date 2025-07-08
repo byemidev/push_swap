@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+//sort numbers following the rules.
 
 //getting max value in the array
 int getMaxint(int nums[], int n)

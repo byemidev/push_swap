@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+//rules
+
 //TODO: what headers i need
 #include "../libft/libft.h"
 #include "../includes/push_swap.h"

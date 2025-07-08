@@ -1,0 +1,1 @@
+//all utils we i could be need (no one exist in libft or another .c file)
