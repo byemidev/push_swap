@@ -5,16 +5,17 @@
 #include <string.h>
 #include <stdlib.h>
 
-typedef struct s_stack_node
+typedef struct s_stacks
 {
-        char                    *content;
-        struct s_stack_node     *next;
-}                                       t_stack_node;
+        int     a;
+        int     b;
+        char    *content;
+        struct t_stacks     *next;
+}                                       t_stacks;
 
 //push_swap
-void    rotate(t_stack_node **top);
-void    push(t_stack_node **top, const char *strnum);
-void    swap(t_stack_node **top);
-void    rrotate(t_stack_node **top);
+void    rotate(t_stacks *stacks, char *direction, int n);
+void    push(t_stacks *stacks, int n);
+void    swap(t_stacks *stacks);
 
 #endif
