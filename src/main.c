@@ -2,6 +2,21 @@
 //input error handling 
 //clean stacks and free memory
 
+void	free_and_exit_with_message(t_stack *s, char *message)
+{
+	//freeing stack and trowing a message using 2 as stdoutoput.
+}
+
+static void	validate_args(int argc, char **argv)
+{
+	//validation input and data needed.
+}
+
+static void	join_args(int argc, char **argv, t_stacks *s)
+{
+	//joins args
+}
+
 int	main(int argc, char **argv)
 {
 	t_stacks	*s;
