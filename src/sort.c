@@ -89,7 +89,7 @@ void	radix_sort(t_stacks *s)
 		size = s->a_size;
 		while (size-- && !is_array_sorted(s))
 		{
-			if (((s->a[0] >> j) & 1) == 0)
+			if (((s->a[0] > j) & 1) == 0)
 				push("pb", s);
 			else
 				rotate(s->a, s->a_size, "up", "a");
