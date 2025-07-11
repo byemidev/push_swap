@@ -1,6 +1,14 @@
-//principal program
-//input error handling 
-//clean stacks and free memory
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: garevalo <garevalo@student.42madrid.c      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/11 15:46:50 by garevalo          #+#    #+#             */
+/*   Updated: 2025/07/11 15:48:02 by garevalo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 void	free_and_exit_with_message(t_stack *s, char *message)
 {

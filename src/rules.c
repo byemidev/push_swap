@@ -6,7 +6,7 @@
 /*   By: garevalo <garevalo@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 14:31:19 by garevalo          #+#    #+#             */
-/*   Updated: 2025/07/03 15:51:53 by garevalo         ###   ########.fr       */
+/*   Updated: 2025/07/11 15:43:57 by garevalo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,8 @@ void	push(char *str, t_stacks *s)
 {
 	int	tmp;
 
-
 	if (ft_strcmp(str, "pa", 3))
 	{
-		//push_b_to_a
 		if (s->b_size <= 0)
 			return ;
 		tmp = s->b[0];
@@ -46,14 +44,13 @@ void	push(char *str, t_stacks *s)
 	}
 	else
 	{
-		//push_a_to_b
 		if (s->a_size <= 0)
 			return ;
 		tmp = s->a[0];
 		ft_memmove(s->b + 1, s->b, sizeof(int) * s->b_size);
 		s->b[0] = tmp;
 		s->a_size--;
-		ft-memmove(s->a, s->b +1; sizeof(int) * s->a_size);
+		ft_memmove(s->a, s->b +1, sizeof(int) * s->a_size);
 		s->b_size++;
 	}
 	ft_putendl_fd(str, 1);
@@ -62,7 +59,6 @@ void	push(char *str, t_stacks *s)
 //rotate first and last element.Depends which direction takes.
 void	rotate(int *array, int size, char *direction, char *list)
 {
-	//directions change the flow.
 	int	tmp;
 
 	if (size < 0)

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: garevalo <garevalo@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 18:05:39 by garevalo          #+#    #+#             */
-/*   Updated: 2025/07/08 12:19:27 by garevalo         ###   ########.fr       */
+/*   Updated: 2025/07/11 15:46:37 by garevalo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 #include "../includes/push_swap.h"
 
-void 	sort_3_nums(t_stacks *s)
+void	sort_3_nums(t_stacks *s)
 {
 	if (s->a[2] != 2)
 	{
@@ -30,11 +30,9 @@ void 	sort_3_nums(t_stacks *s)
 			rotate(s->a, s->a_size, "up", "a");
 		else
 			rotate(s->a, s->a_size, "down", "a");
-	
 	}
 	if (s->a[0] > s->a[1])
 		swap("sa", s->a, s->a_size);
-
 }
 
 void	sort_4_to_5_nums(t_stacks *s)
