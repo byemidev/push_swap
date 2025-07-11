@@ -1,4 +1,4 @@
-NAME = push_swap.a
+NAME = push_swap
 SRCS = src/*.c
 OBJS = $(SRCS:.c=.o)
 
