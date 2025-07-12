@@ -10,36 +10,49 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	free_and_exit_with_message(t_stack *s, char *message)
+void	free_and_exit_with_message(t_stacks *s, char *message)
 {
-	if (!message)
-		ft_putstr_fd("Error!", 2);
+	if (message == NULL)
+		ft_putstr_fd("Error!\n", 2);
 	else
 		ft_putstr_fd(message, 2);
-	//freeing stack and trowing a message using 2 as stdoutoput.
+	if (s != NULL)
+	{
+		free(s->a);
+		free(s->b);
+		free(s->join_args);
+		free(s);
+	}
+	exit(EXIT_FAILURE);
 }
 
 static void	validate_args(int argc, char **argv)
 {
-	int	arg;
-	unsigned int	i;
+	unsigned int	arg;
+	int	i;
 
 	//validation input and data needed.
 	if (argc < 2)
-		free_and_exit_with_message("Error! invalid nbr of args", NULL);
-	i = 0; 
-	while (*argv[i])
+		free_and_exit_with_message(NULL, "Error! invalid nbr of args\n");
+	i = 1; 
+	while (i < argc)
 	{
-		arg = ft_atoi(*argv[i++]);
+		arg = (unsigned int) ft_atoi(argv[i]);
 		if (!arg)
-			free_and_exit_with_message("Error! arg invalid", NULL);
+			free_and_exit_with_message(NULL, "Error! arg invalid\n");
+		++i;
 	}
-
 }
 
 static void	join_args(int argc, char **argv, t_stacks *s)
 {
-	//joins args
+	int	i;
+
+	i = 1;
+	while (i < argc)
+	{
+		//TODO: join
+	}
 }
 
 int	main(int argc, char **argv)
@@ -49,7 +62,7 @@ int	main(int argc, char **argv)
 	validate_arguments(argc, argv);
 	s = malloc(sizeof * s);
 	if (s == NULL)
-		exit(1);
+		exit(EXIT_FAILURE);
 	initialize_stacks(argc, argv, s);
 	join_args(argc, argv, s);
 	parse_numbers(s);
@@ -64,6 +77,6 @@ int	main(int argc, char **argv)
 	else
 		radix_sort(s);
 	exit_if_sorted_or_has_duplicate(s, 1);
-	free_and_exit_with_message(s, "Error\n");
-	return (0);
+	free_and_exit_with_message(s, NULL);
+	return (EXIT_SUCCESS);
 }
