@@ -18,9 +18,12 @@ void	free_and_exit_with_message(t_stacks *s, char *message)
 		ft_putstr_fd(message, 2);
 	if (s != NULL)
 	{
-		free(s->a);
-		free(s->b);
-		free(s->join_args);
+		if (s->a)
+			free(s->a);
+		if (s->b)
+			free(s->b);
+		if (s->join_args)
+			free(s->join_args);
 		free(s);
 	}
 	exit(EXIT_FAILURE);
@@ -30,17 +33,22 @@ static void	validate_args(int argc, char **argv)
 {
 	unsigned int	arg;
 	int	i;
+	int	j;
 
 	//validation input and data needed.
 	if (argc < 2)
 		free_and_exit_with_message(NULL, "Error! invalid nbr of args\n");
-	i = 1; 
-	while (i < argc)
+	i = 0; 
+	while (++i < argc)
 	{
-		arg = (unsigned int) ft_atoi(argv[i]);
-		if (!arg)
-			free_and_exit_with_message(NULL, "Error! arg invalid\n");
-		++i;
+		j = 0;
+		if (!argv[i][0] || (argv[i][0] && argv[i][0] == ' '))
+			free_and_exit_with_message(NULL, NULL);
+		while (argv[i][j] != '\0')
+		{
+			//TODO: is a digit, sign or space
+			//then if it is a digit i have to continue, if not , is a sign ( - or +) or space ( ' ' ) and is not a '\0' the next char pos
+		}
 	}
 }
 
@@ -53,6 +61,11 @@ static void	join_args(int argc, char **argv, t_stacks *s)
 	{
 		//TODO: join
 	}
+}
+
+void    initialize_stacks(int argc, char **argv, t_stacks *s)
+{
+    //TODO: while argc , take argv and initalize each one
 }
 
 int	main(int argc, char **argv)
