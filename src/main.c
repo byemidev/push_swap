@@ -35,20 +35,22 @@ static void	validate_args(int argc, char **argv)
 	int	i;
 	int	j;
 
-	//validation input and data needed.
 	if (argc < 2)
 		free_and_exit_with_message(NULL, "Error! invalid nbr of args\n");
-	i = 0; 
-	while (++i < argc)
+	i = 1; 
+	while (i <= argc)
 	{
 		j = 0;
 		if (!argv[i][0] || (argv[i][0] && argv[i][0] == ' '))
 			free_and_exit_with_message(NULL, NULL);
 		while (argv[i][j] != '\0')
 		{
-			//TODO: is a digit, sign or space
-			//then if it is a digit i have to continue, if not , is a sign ( - or +) or space ( ' ' ) and is not a '\0' the next char pos
+			if (!ft_isdigit(argv[i][j]) && !argv[i][j] == ' ' ||
+			 !(argv[i][j] == '-' || argv[i][j] == '+' || argv[i][j  +1] == '\0'))
+				free_and_exit_with_message(NULL, NULL);
+			j++;
 		}
+		i++;
 	}
 }
 
