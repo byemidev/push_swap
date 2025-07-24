@@ -6,9 +6,12 @@
 /*   By: garevalo <garevalo@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 15:46:50 by garevalo          #+#    #+#             */
-/*   Updated: 2025/07/11 15:48:02 by garevalo         ###   ########.fr       */
+/*   Updated: 2025/07/22 19:33:24 by garevalo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libtf.h"
+#include "includes/push_swap.h"
 
 void	free_and_exit_with_message(t_stacks *s, char *message)
 {
@@ -45,8 +48,11 @@ static void	validate_args(int argc, char **argv)
 			free_and_exit_with_message(NULL, NULL);
 		while (argv[i][j] != '\0')
 		{
-			if (!ft_isdigit(argv[i][j]) && !argv[i][j] == ' ' ||
-			 !(argv[i][j] == '-' || argv[i][j] == '+' || argv[i][j  +1] == '\0'))
+			if (!(ft_isdigit(argv[i][j]) && !argv[i][j] == ' ') 
+				||(argv[i][j] == '+' && argv[i][j] == '\0')
+				||(argv[i][j] == '-' && argv[i][j] == '\0')
+				||(argv[i][j] == '+' && argv[i][j  +1] == ' ')
+				||(argv[i][j] == '-' && argv[i][j  +1] == ' ')) 
 				free_and_exit_with_message(NULL, NULL);
 			j++;
 		}
