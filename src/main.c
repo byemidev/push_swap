@@ -62,18 +62,29 @@ static void	validate_args(int argc, char **argv)
 
 static void	join_args(int argc, char **argv, t_stacks *s)
 {
-	int	i;
+	char *joined;
+	char *tmp;
+	int i;
 
 	i = 1;
-	while (i < argc)
+	joined = ft_strdup("");
+	while (i < argc - 1 && argv[i] != NULL)
 	{
-		//TODO: join
+		tmp = ft_strjoin(joined, argv[i]);
+		if (!tmp)
+			free_and_exit_with_message(s, NULL);
+		free(joined);
+		joined = tmp;
+		if (++i < argc)
+		{
+			tmp = ft_strjoin(joined, " ");
+			if (!tmp)
+				free_and_exit_with_message(s, NULL);
+			free(joined);
+			joined = tmp;
+		}
 	}
-}
-
-void    initialize_stacks(int argc, char **argv, t_stacks *s)
-{
-    //TODO: while argc , take argv and initalize each one
+	s->join_args = joined;
 }
 
 int	main(int argc, char **argv)
