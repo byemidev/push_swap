@@ -6,7 +6,7 @@
 /*   By: garevalo <garevalo@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 15:44:16 by garevalo          #+#    #+#             */
-/*   Updated: 2025/07/24 14:57:09 by garevalo         ###   ########.fr       */
+/*   Updated: 2025/07/29 12:33:53 by garevalo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,20 @@ int	ft_atol(const char *nbr)
 	}
 	res = res * sign;
 	return ((int)res);
+}
+
+int	is_array_sorted(t_stack *s)
+{
+	int	i;
+
+	if (!s || !s->a || s->a_size <= 1)
+		return (1);
+	i = 1;
+	while (i < s->a_size)
+	{
+		if (s->a[i] < s->a[i -1])
+			return (0);
+		i++;
+	}
+	return (1);
 }
