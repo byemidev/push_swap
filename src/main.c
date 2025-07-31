@@ -6,12 +6,11 @@
 /*   By: garevalo <garevalo@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 15:46:50 by garevalo          #+#    #+#             */
-/*   Updated: 2025/07/22 19:33:24 by garevalo         ###   ########.fr       */
+/*   Updated: 2025/07/31 13:39:27 by garevalo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libtf.h"
-#include "includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 void	free_and_exit_with_message(t_stacks *s, char *message)
 {
@@ -32,31 +31,30 @@ void	free_and_exit_with_message(t_stacks *s, char *message)
 	exit(EXIT_FAILURE);
 }
 
-static void	validate_args(int argc, char **argv)
+static void	validate_arguments(int argc, char **argv)
 {
-	unsigned int	arg;
 	int	i;
 	int	j;
 
+	i = 0;
 	if (argc < 2)
-		free_and_exit_with_message(NULL, "Error! invalid nbr of args\n");
-	i = 1; 
-	while (i <= argc)
+		free_and_exit_with_message(NULL, "");
+	while (++i < argc)
 	{
 		j = 0;
 		if (!argv[i][0] || (argv[i][0] && argv[i][0] == ' '))
 			free_and_exit_with_message(NULL, NULL);
 		while (argv[i][j] != '\0')
 		{
-			if (!(ft_isdigit(argv[i][j]) && !argv[i][j] == ' ') 
-				||(argv[i][j] == '+' && argv[i][j] == '\0')
-				||(argv[i][j] == '-' && argv[i][j] == '\0')
-				||(argv[i][j] == '+' && argv[i][j  +1] == ' ')
-				||(argv[i][j] == '-' && argv[i][j  +1] == ' ')) 
-				free_and_exit_with_message(NULL, NULL);
+			if ((!(ft_isdigit(argv[i][j])) && (argv[i][j] != ' ')
+			&& (argv[i][j] != '-' && argv[i][j] != '+' && argv[i][j] != ' '))
+			|| (argv[i][j] == '-' && argv[i][j + 1] == '\0')
+			|| (argv[i][j] == '+' && argv[i][j + 1] == '\0')
+			|| (argv[i][j] == '-' && argv[i][j + 1] == ' ')
+			|| (argv[i][j] == '+' && argv[i][j + 1] == ' '))
+				free_and_exit_with_message(NULL, "Error\n");
 			j++;
 		}
-		i++;
 	}
 }
 
@@ -98,7 +96,7 @@ int	main(int argc, char **argv)
 	initialize_stacks(argc, argv, s);
 	join_args(argc, argv, s);
 	parse_numbers(s);
-	exit_if_sorted_or_has_duplicate(s, 0);
+	exit_if_sorted_or_has_duplicated(s, 0);
 	create_index(s);
 	if (s->a_size == 2 && s->a[0] > s->a[1])
 		swap("sa", s->a, s->a_size);
@@ -108,7 +106,7 @@ int	main(int argc, char **argv)
 		sort_four_to_five_elements(s);
 	else
 		radix_sort(s);
-	exit_if_sorted_or_has_duplicate(s, 1);
+	exit_if_sorted_or_has_duplicated(s, 1);
 	free_and_exit_with_message(s, NULL);
 	return (EXIT_SUCCESS);
 }

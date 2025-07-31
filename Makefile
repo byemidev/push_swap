@@ -1,42 +1,63 @@
-NAME = push_swap
-SRCS = src/*.c
-OBJS = $(SRCS:.c=.o)
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: garevalo <garevalo@student.42madrid.com>   +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/07/31 13:29:06 by garevalo          #+#    #+#              #
+#    Updated: 2025/07/31 14:09:00 by garevalo         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-CC = cc
-CFLAGS = -Wextra -Werror -Wall
+# -------------------------------------------
+# Push-Swap Makefile (macOS-ready)
+# -------------------------------------------
 
-LIBFT_DIR = libft
-LIBFT = $(LIBFT_DIR)/libft.a
+NAME		= push_swap
 
-INCLUDES = -I$(LIBFT_DIR)
+SRC_DIR		= src
+SRCS		= $(SRC_DIR)/main.c        \
+		  $(SRC_DIR)/utils.c       \
+		  $(SRC_DIR)/rules.c       \
+		  $(SRC_DIR)/sort.c        \
+		  $(SRC_DIR)/utils_stacks.c
 
-AR = ar rcs
-CP = cp
+OBJS		= $(SRCS:.c=.o)
 
-.PHONY: all clean fclean re libft_clean libft_fclean
+# Compiler / flags
+CC			= cc
+CFLAGS		= -Wall -Wextra -Werror
+INCLUDE		= -I./includes -I./libft
 
+# Libft
+LIBFT_DIR	= libft
+LIBFT		= $(LIBFT_DIR)/libft.a
+
+# Default rule
+all: $(NAME)
+
+# Build the final executable
+$(NAME): $(OBJS) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+
+# Compile object files
 %.o: %.c
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
-$(NAME): $(OBJS)
-	$(CP) $(LIBFT) .
-	$(AR) $(NAME) $(OBJS)
-
+# Build libft if missing
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
 
+# Cleanup
 clean:
+	$(MAKE) -C $(LIBFT_DIR) clean
 	rm -f $(OBJS)
 
 fclean: clean
+	$(MAKE) -C $(LIBFT_DIR) fclean
 	rm -f $(NAME)
 
 re: fclean all
 
-libft_clean:
-	$(MAKE) -C $(LIBFT_DIR) clean
-
-libft_fclean:
-	$(MAKE) -C $(LIBFT_DIR) fclean
-
-all: $(LIBFT) $(NAME)
+.PHONY: all clean fclean re

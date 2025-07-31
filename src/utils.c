@@ -6,24 +6,11 @@
 /*   By: garevalo <garevalo@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 15:44:16 by garevalo          #+#    #+#             */
-/*   Updated: 2025/07/29 12:33:53 by garevalo         ###   ########.fr       */
+/*   Updated: 2025/07/31 13:43:20 by garevalo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	initialize_stacks(int argc, char **argv, t_stacks *s)
-{
-	s->a_size = 0;
-	s->b_size = 0;
-
-	while (--argc)
-	{
-		if (ft_count_words(*argv + 1, ' '))
-			s->a_size += ft_count_words(*argv, ' ');
-		else
-			s->a_size++; 
-		argv++;
-	}
-}
+#include "../includes/push_swap.h"
 
 int	ft_atol(const char *nbr)
 {
@@ -32,7 +19,7 @@ int	ft_atol(const char *nbr)
 
 	if (!nbr)
 		return (0);
-	while (*nbr == ' ' || *nbr >= 9 && *nbr <= 13)
+	while (*nbr == ' ' || (*nbr >= 9 && *nbr <= 13))
 		nbr++;
 	sign = 1;
 	if (*nbr == '+' || *nbr == '-')
@@ -51,18 +38,25 @@ int	ft_atol(const char *nbr)
 	return ((int)res);
 }
 
-int	is_array_sorted(t_stack *s)
+size_t	ft_count_words(const char *str, char c)
 {
-	int	i;
-
-	if (!s || !s->a || s->a_size <= 1)
-		return (1);
-	i = 1;
-	while (i < s->a_size)
+	size_t	nwords;
+	int	inword;
+	
+	if (!str)
+		return (0);
+	nwords = 0;
+	inword = 0;
+	while (*str)
 	{
-		if (s->a[i] < s->a[i -1])
-			return (0);
-		i++;
+		if (*str == c)
+			inword = 0;
+		else if (!inword)
+		{
+			inword = 1;
+			++nwords;
+		}
+		++str;
 	}
-	return (1);
+	return (nwords);
 }

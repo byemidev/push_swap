@@ -6,7 +6,7 @@
 /*   By: garevalo <garevalo@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 14:31:19 by garevalo          #+#    #+#             */
-/*   Updated: 2025/07/11 15:43:57 by garevalo         ###   ########.fr       */
+/*   Updated: 2025/07/31 13:50:18 by garevalo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	push(char *str, t_stacks *s)
 {
 	int	tmp;
 
-	if (ft_strcmp(str, "pa", 3))
+	if (ft_strncmp(str, "pa", 3))
 	{
 		if (s->b_size <= 0)
 			return ;
@@ -63,18 +63,19 @@ void	rotate(int *array, int size, char *direction, char *list)
 
 	if (size < 0)
 		return ;
-	if (ft_strcmp(direction, "up", 5) == 0)
+	if (ft_strncmp(direction, "up", 5) == 0)
 	{
 		tmp = array[0];
 		ft_memmove(array, array +1, sizeof(int) * (size -1));
 		array[size -1] = tmp;
 		write(1, "r", 1);
 	}
-	else if (ft_strcmp(direction, "down", 5) == 0)
+	else if (ft_strncmp(direction, "down", 5) == 0)
 	{
 		tmp = array[size -1];
 		ft_memmove(array +1, array, sizeof(int) * (size -1));
 		array[0] = tmp;
 		write(1, "rr", 2);
 	}
+	ft_putendl_fd(list, 1);
 }

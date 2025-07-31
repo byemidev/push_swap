@@ -6,18 +6,15 @@
 /*   By: garevalo <garevalo@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 18:05:39 by garevalo          #+#    #+#             */
-/*   Updated: 2025/07/11 15:46:37 by garevalo         ###   ########.fr       */
+/*   Updated: 2025/07/31 13:55:16 by garevalo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
-//sort numbers following the rules.
-
 /*******************************************
-* radix algorithm implementation with rules.
-*
-* status: DOING
-*
+* radix algorithm implementation with rules.*
+*											*
+* status: DOING								*
+*											*
  ******************************************/
 
 #include "../includes/push_swap.h"
@@ -94,7 +91,7 @@ void	radix_sort(t_stacks *s)
 			else
 				rotate(s->a, s->a_size, "up", "a");
 		}
-		radix_sort_stack_b(s, s->b_size, bit_size, j + 1);
+		radix_sort_b_stack(s, s->b_size, bit_size, j + 1);
 	}
 	while (s->b_size != 0)
 		push("pa", s);
