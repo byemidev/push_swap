@@ -14,9 +14,7 @@
 
 void	free_and_exit_with_message(t_stacks *s, char *message)
 {
-	if (message == NULL)
-		ft_putstr_fd("Error!\n", 2);
-	else
+	if (message != NULL)
 		ft_putstr_fd(message, 2);
 	if (s != NULL)
 	{
@@ -28,7 +26,10 @@ void	free_and_exit_with_message(t_stacks *s, char *message)
 			free(s->join_args);
 		free(s);
 	}
-	exit(EXIT_FAILURE);
+	if (message != NULL)
+		exit(EXIT_FAILURE);
+	else
+		exit(EXIT_SUCCESS);
 }
 
 static void	validate_arguments(int argc, char **argv)
@@ -60,13 +61,15 @@ static void	validate_arguments(int argc, char **argv)
 
 static void	join_args(int argc, char **argv, t_stacks *s)
 {
-	char *joined;
-	char *tmp;
-	int i;
+	char	*joined;
+	char	*tmp;
+	int		i;
 
 	i = 1;
 	joined = ft_strdup("");
-	while (i < argc - 1 && argv[i] != NULL)
+	if (!joined)
+		free_and_exit_with_message(s, NULL);
+	while (i < argc)
 	{
 		tmp = ft_strjoin(joined, argv[i]);
 		if (!tmp)
@@ -93,6 +96,9 @@ int	main(int argc, char **argv)
 	s = malloc(sizeof * s);
 	if (s == NULL)
 		exit(EXIT_FAILURE);
+	s->a = NULL;
+	s->b = NULL;
+	s->join_args = NULL;
 	initialize_stacks(argc, argv, s);
 	join_args(argc, argv, s);
 	parse_numbers(s);
@@ -104,9 +110,7 @@ int	main(int argc, char **argv)
 		sort_three_elements(s);
 	else if (s->a_size >= 4 && s->a_size <= 5)
 		sort_four_to_five_elements(s);
-	else
+	else if (s->a_size > 5)
 		radix_sort(s);
-	exit_if_sorted_or_has_duplicated(s, 1);
 	free_and_exit_with_message(s, NULL);
-	return (EXIT_SUCCESS);
 }

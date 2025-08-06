@@ -6,12 +6,12 @@
 #    By: garevalo <garevalo@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/31 13:29:06 by garevalo          #+#    #+#              #
-#    Updated: 2025/07/31 14:09:00 by garevalo         ###   ########.fr        #
+#    Updated: 2025/08/06 15:11:30 by garevalo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # -------------------------------------------
-# Push-Swap Makefile (macOS-ready)
+# Push-Swap Makefile
 # -------------------------------------------
 
 NAME		= push_swap

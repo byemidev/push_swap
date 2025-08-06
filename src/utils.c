@@ -12,10 +12,10 @@
 
 #include "../includes/push_swap.h"
 
-int	ft_atol(const char *nbr)
+long	ft_atol(const char *nbr)
 {
-	long sign;
-	long long res;
+	long	sign;
+	long	res;
 
 	if (!nbr)
 		return (0);
@@ -31,11 +31,17 @@ int	ft_atol(const char *nbr)
 	res = 0;
 	while (*nbr >= '0' && *nbr <= '9')
 	{
+		if (res > (LONG_MAX - (*nbr - '0')) / 10)
+		{
+			if (sign == 1)
+				return (LONG_MAX);
+			else
+				return (LONG_MIN);
+		}
 		res = res * 10 + (*nbr - '0');
 		nbr++;
 	}
-	res = res * sign;
-	return ((int)res);
+	return (res * sign);
 }
 
 size_t	ft_count_words(const char *str, char c)
