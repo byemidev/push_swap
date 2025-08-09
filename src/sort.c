@@ -6,44 +6,11 @@
 /*   By: garevalo <garevalo@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 18:05:39 by garevalo          #+#    #+#             */
-/*   Updated: 2025/08/06 15:24:40 by garevalo         ###   ########.fr       */
+/*   Updated: 2025/08/07 13:44:09 by garevalo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-void	create_index(t_stacks *s)
-{
-	int	i;
-	int	j;
-	int	k;
-	int	*new_a;
-
-	new_a = malloc(sizeof * new_a * s->a_size);
-	if (!new_a)
-		free_and_exit_with_message(s, NULL);
-	i = 0;
-	while (i < s->a_size)
-	{
-		k = 0;
-		j = 0;
-		while (j < s->a_size)
-		{
-			if (s->a[i] > s->a[j])
-				k++;
-			j++;
-		}
-		new_a[i] = k;
-		i++;
-	}
-	i = 0;
-	while (i < s->a_size)
-	{
-		s->a[i] = new_a[i];
-		i++;
-	}
-	free(new_a);
-}
 
 void	sort_three_elements(t_stacks *s)
 {
