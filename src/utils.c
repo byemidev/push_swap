@@ -6,16 +6,27 @@
 /*   By: garevalo <garevalo@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 15:44:16 by garevalo          #+#    #+#             */
-/*   Updated: 2025/07/31 13:43:20 by garevalo         ###   ########.fr       */
+/*   Updated: 2025/08/14 00:28:40 by garevalo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+/* doing atol safely
+	if (res > (LONG_MAX - (*nbr - '0')) / 10)
+	{
+		if (sign == 1)
+			return (LONG_MAX);
+		else
+			return (LONG_MIN);
+	}
+*/
+
+//unsafe atol implementation.
 long	ft_atol(const char *nbr)
 {
 	long	sign;
-	long	res;
+	static long	res;
 
 	if (!nbr)
 		return (0);
@@ -31,13 +42,6 @@ long	ft_atol(const char *nbr)
 	res = 0;
 	while (*nbr >= '0' && *nbr <= '9')
 	{
-		if (res > (LONG_MAX - (*nbr - '0')) / 10)
-		{
-			if (sign == 1)
-				return (LONG_MAX);
-			else
-				return (LONG_MIN);
-		}
 		res = res * 10 + (*nbr - '0');
 		nbr++;
 	}

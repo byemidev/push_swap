@@ -33,7 +33,7 @@ void		swap(char *str, int *array, int size);
 void		push(char *str, t_stacks *s);
 void		sort_three_elements(t_stacks *s);
 void		sort_four_to_five_elements(t_stacks *s);
-void		radix_sort(t_stacks *s);
+void		chunk_sort(t_stacks *s);
 void		parse_numbers(t_stacks *s);
 void		create_index(t_stacks *s);
 void		initialize_stacks(int argc, char **argv, t_stacks *s);
@@ -42,5 +42,10 @@ void		exit_if_sorted_or_has_duplicated(t_stacks *s, int i);
 int			is_sorted(t_stacks *s);
 long		ft_atol(const char *nbr);
 size_t		ft_count_words(const char *str, char c);
+
+/* Helper utilities (main_utils.c) */
+int			is_invalid_token(char c, char next);
+char		*str_join_safe(char *s1, const char *s2, t_stacks *s);
+int			count_lower(int *array, int size, int value);
 
 #endif

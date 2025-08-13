@@ -6,26 +6,24 @@
 #    By: garevalo <garevalo@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/31 13:29:06 by garevalo          #+#    #+#              #
-#    Updated: 2025/08/06 15:11:30 by garevalo         ###   ########.fr        #
+#    Updated: 2025/08/14 00:00:34 by garevalo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-# -------------------------------------------
-# Push-Swap Makefile
-# -------------------------------------------
 
 NAME		= push_swap
 
 SRC_DIR		= src
-SRCS		= $(SRC_DIR)/main.c        \
-		  $(SRC_DIR)/utils.c       \
-		  $(SRC_DIR)/rules.c       \
-		  $(SRC_DIR)/sort.c        \
+SRCS		= $(SRC_DIR)/main.c \
+		  $(SRC_DIR)/utils.c \
+		  $(SRC_DIR)/rules.c \
+		  $(SRC_DIR)/sort.c \
+		  $(SRC_DIR)/chunk_sort.c \
+		  $(SRC_DIR)/main_utils.c \
 		  $(SRC_DIR)/utils_stacks.c
 
 OBJS		= $(SRCS:.c=.o)
 
-# Compiler / flags
+# Compiler + flags
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror
 INCLUDE		= -I./includes -I./libft
