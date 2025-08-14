@@ -18,7 +18,7 @@ SRCS		= $(SRC_DIR)/main.c \
 		  $(SRC_DIR)/rules.c \
 		  $(SRC_DIR)/sort.c \
 		  $(SRC_DIR)/chunk_sort.c \
-		  $(SRC_DIR)/main_utils.c \
+		  $(SRC_DIR)/utils_main.c \
 		  $(SRC_DIR)/utils_stacks.c
 
 OBJS		= $(SRCS:.c=.o)

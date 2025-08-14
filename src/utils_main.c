@@ -18,6 +18,8 @@ int	is_invalid_token(char c, char next)
 		return (1);
 	if ((c == '-' || c == '+') && (next == '\0' || next == ' '))
 		return (1);
+	if ((c == '-' || c == '+') && (next == '-' || next == '+'))
+		return (1);
 	return (0);
 }
 

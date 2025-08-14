@@ -80,7 +80,7 @@ test_case "Large numbers" "2147483647 -2147483648 0" 0
 test_case "Overflow" "2147483648" 1
 test_case "Underflow" "-2147483649" 1
 test_case "Leading zeros" "001 002 003" 0
-test_case "Mixed format" '"1 2" 3 4' 0
+test_case "Mixed format" '"2 1" 3 4' 0
 
 echo
 
