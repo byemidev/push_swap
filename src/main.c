@@ -40,6 +40,8 @@ static void	validate_arguments(int argc, char **argv)
 	i = 0;
 	if (argc < 2)
 		free_and_exit_with_message(NULL, "");
+	if (ft_strncmp(argv[1], "", 1) == 0)
+		free_and_exit_with_message(NULL, "Error\n");
 	while (++i < argc)
 	{
 		j = 0;
