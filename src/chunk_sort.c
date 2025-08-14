@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   chunk_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ai                                            +#+  +:+       +#+        */
+/*   By: garevalo <garevalo@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/13 21:46:00 by ai                #+#    #+#             */
-/*   Updated: 2025/08/13 21:46:00 by ai               ###   ########.fr       */
+/*   Created: 2025/08/14 07:39:37 by garevalo          #+#    #+#             */
+/*   Updated: 2025/08/14 07:49:15 by garevalo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	find_max_pos(int *arr, int size)
 {
-	int i;
-	int pos;
+	int	i;
+	int	pos;
 
 	pos = 0;
 	i = 1;
@@ -30,8 +30,8 @@ static int	find_max_pos(int *arr, int size)
 
 static void	push_chunks_to_b(t_stacks *s, int chunk)
 {
-	int limit;
-	int pushed;
+	int	limit;
+	int	pushed;
 
 	limit = chunk;
 	pushed = 0;
@@ -53,7 +53,7 @@ static void	push_chunks_to_b(t_stacks *s, int chunk)
 
 static void	pull_back_to_a(t_stacks *s)
 {
-	int pos;
+	int	pos;
 
 	while (s->b_size)
 	{
@@ -74,10 +74,9 @@ static void	pull_back_to_a(t_stacks *s)
 
 void	chunk_sort(t_stacks *s)
 {
-	int chunk;
+	int	chunk;
 
 	chunk = (s->a_size / 5) + 1;
 	push_chunks_to_b(s, chunk);
 	pull_back_to_a(s);
 }
-

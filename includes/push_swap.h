@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: huaydin <huaydin@student.42vienna.com>     +#+  +:+       +#+        */
+/*   By: garevalo <garevalo@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/25 13:25:59 by huaydin           #+#    #+#             */
-/*   Updated: 2025/08/06 15:15:11 by garevalo         ###   ########.fr       */
+/*   Created: 2025/08/14 07:36:56 by garevalo          #+#    #+#             */
+/*   Updated: 2025/08/14 07:37:04 by garevalo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ void		exit_if_sorted_or_has_duplicated(t_stacks *s, int i);
 int			is_sorted(t_stacks *s);
 long		ft_atol(const char *nbr);
 size_t		ft_count_words(const char *str, char c);
-
-/* Helper utilities (main_utils.c) */
 int			is_invalid_token(char c, char next);
 char		*str_join_safe(char *s1, const char *s2, t_stacks *s);
 int			count_lower(int *array, int size, int value);

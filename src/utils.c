@@ -6,7 +6,7 @@
 /*   By: garevalo <garevalo@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 15:44:16 by garevalo          #+#    #+#             */
-/*   Updated: 2025/08/14 00:28:40 by garevalo         ###   ########.fr       */
+/*   Updated: 2025/08/14 07:44:29 by garevalo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,11 @@
 			return (LONG_MIN);
 	}
 */
-
 //unsafe atol implementation.
 long	ft_atol(const char *nbr)
 {
 	long	sign;
-	static long	res;
+	long	res;
 
 	if (!nbr)
 		return (0);
@@ -51,8 +50,8 @@ long	ft_atol(const char *nbr)
 size_t	ft_count_words(const char *str, char c)
 {
 	size_t	nwords;
-	int	inword;
-	
+	int		inword;
+
 	if (!str)
 		return (0);
 	nwords = 0;

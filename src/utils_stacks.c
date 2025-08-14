@@ -6,7 +6,7 @@
 /*   By: garevalo <garevalo@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 15:44:16 by garevalo          #+#    #+#             */
-/*   Updated: 2025/08/06 15:25:32 by garevalo         ###   ########.fr       */
+/*   Updated: 2025/08/14 07:46:56 by garevalo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static int	has_duplicated(t_stacks *s)
 {
 	int	i;
 	int	j;
-	
+
 	i = 0;
 	while (i < s->a_size)
 	{
@@ -65,7 +65,6 @@ static int	has_duplicated(t_stacks *s)
 	}
 	return (0);
 }
-
 
 void	exit_if_sorted_or_has_duplicated(t_stacks *s, int i)
 {

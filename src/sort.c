@@ -6,7 +6,7 @@
 /*   By: garevalo <garevalo@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 18:05:39 by garevalo          #+#    #+#             */
-/*   Updated: 2025/08/07 13:44:09 by garevalo         ###   ########.fr       */
+/*   Updated: 2025/08/14 07:42:31 by garevalo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,3 @@ void	sort_four_to_five_elements(t_stacks *s)
 	while (s->b_size > 0)
 		push("pa", s);
 }
-
-

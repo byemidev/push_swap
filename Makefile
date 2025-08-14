@@ -6,7 +6,7 @@
 #    By: garevalo <garevalo@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/31 13:29:06 by garevalo          #+#    #+#              #
-#    Updated: 2025/08/14 00:00:34 by garevalo         ###   ########.fr        #
+#    Updated: 2025/08/14 07:38:47 by garevalo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,31 +23,24 @@ SRCS		= $(SRC_DIR)/main.c \
 
 OBJS		= $(SRCS:.c=.o)
 
-# Compiler + flags
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror
 INCLUDE		= -I./includes -I./libft
 
-# Libft
 LIBFT_DIR	= libft
 LIBFT		= $(LIBFT_DIR)/libft.a
 
-# Default rule
 all: $(NAME)
 
-# Build the final executable
 $(NAME): $(OBJS) $(LIBFT)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
-# Compile object files
 %.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
-# Build libft if missing
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
 
-# Cleanup
 clean:
 	$(MAKE) -C $(LIBFT_DIR) clean
 	rm -f $(OBJS)

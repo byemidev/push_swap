@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ai                                            +#+  +:+       +#+        */
+/*   By: garevalo <garevalo@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/13 22:05:00 by ai                #+#    #+#             */
-/*   Updated: 2025/08/13 22:05:00 by ai               ###   ########.fr       */
+/*   Created: 2025/08/14 07:40:30 by garevalo          #+#    #+#             */
+/*   Updated: 2025/08/14 07:47:36 by garevalo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ char	*str_join_safe(char *s1, const char *s2, t_stacks *s)
 
 int	count_lower(int *array, int size, int value)
 {
-	int i;
-	int count;
+	int	i;
+	int	count;
 
 	count = 0;
 	i = 0;
@@ -47,4 +47,3 @@ int	count_lower(int *array, int size, int value)
 	}
 	return (count);
 }
-
